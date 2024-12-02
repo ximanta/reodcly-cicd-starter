@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
         name: Checkout repository
@@ -18,7 +17,7 @@ jobs:
       - name: Deploy to Github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: .
           force_orphan: true
           exclude_assets: '.github,openapi,.redocly.yaml,make.sh'
